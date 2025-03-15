@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Zarrim</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4B0082, #FFD700, #1E90FF);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            font-size: 24px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+        }
+        nav {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+        }
+        button {
+            background: #FFD700; /* Jaune */
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+        }
+        button:hover {
+            background: #daa520; /* Jaune foncé */
+        }
+        .submenu {
+            display: none;
+            flex-direction: column;
+            margin-left: 10px;
+        }
+        .submenu button {
+            background: #ffca43;
+            color: black;
+        }
+        .content {
+            flex: 1;
+            background: white;
+            color: black;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+    </style>
+    <script>
+        function toggleSubmenu(id) {
+            document.querySelectorAll('.submenu').forEach(menu => menu.style.display = 'none');
+            let submenu = document.getElementById(id);
+            if (submenu) submenu.style.display = 'flex';
+        }
+        function showPage(pageId) {
+            document.querySelectorAll('.content').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Wiki Zarrim</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <button onclick="showPage('accueil')">Accueil</button>
+            <button onclick="toggleSubmenu('rp-submenu')">RP de Zarrim</button>
+            <div id="rp-submenu" class="submenu">
+                <button onclick="showPage('histoire-rp')">Histoire RP</button>
+                <button onclick="showPage('brigades')">Brigades</button>
+            </div>
+            
+            <button onclick="toggleSubmenu('items-submenu')">Items</button>
+            <div id="items-submenu" class="submenu">
+                <button onclick="showPage('mythril')">Mythril</button>
+                <button onclick="showPage('titane')">Titane</button>
+                <button onclick="showPage('diamantgold')">DiamantGold</button>
+            </div>
+            
+            <button onclick="toggleSubmenu('commandes-submenu')">Commandes</button>
+            <div id="commandes-submenu" class="submenu">
+                <button onclick="showPage('factions')">Factions</button>
+                <button onclick="showPage('utilitaire')">Utilitaire</button>
+                <button onclick="showPage('autre')">Autre</button>
+            </div>
+            
+            <button onclick="toggleSubmenu('block-submenu')">Blocks</button>
+            <div id="block-submenu" class="submenu">
+                <button onclick="showPage('luckyblock')">Lucky Block</button>
+                <button onclick="showPage('caveblock')">Cave Block</button>
+                <button onclick="showPage('titaneforge')">Forge en Titane</button>
+            </div>
+            
+            <button onclick="showPage('rdz')">RDZ</button>
+            <button onclick="showPage('events')">Événements</button>
+        </nav>
+        
+        <div id="accueil" class="content active">
+            <h2>Accueil</h2>
+            <p>Bienvenue sur le Wiki de Zarrim ! Choisissez une section dans le menu de gauche.</p>
+        </div>
+        <div id="histoire-rp" class="content">
+            <h2>Histoire RP de Zarrim</h2>
+            <p><strong>Le Mythe de Zarrim : L’Ultime Guerre</strong></p>
+            <p>Il y a fort longtemps, avant même que Zarrim ne prenne forme, deux guerriers légendaires s'affrontèrent dans un duel qui fit trembler le monde. Ils étaient les premiers, les plus puissants, et leur force était telle qu’aucun d’eux ne pouvait l’emporter sur l’autre.</p>
+            <p>Leurs coups fendaient les cieux, faisaient s’effondrer les montagnes et secouaient l’océan lui-même. Mais au fil des siècles, ils comprirent que leur combat ne prendrait jamais fin. Plutôt que de se détruire mutuellement, ils firent un choix qui <strong>scella le destin de Zarrim</strong> : ils transmirent leur pouvoir à ceux qui viendraient après eux, donnant naissance à deux <strong>grandes Brigades.</strong></p>
+            <p>Mais étaient-ils vraiment seuls ce jour-là ?</p>
+            <p>Certaines écrits anciens suggèrent qu’une troisième ombre se tenait en retrait, observant… attendant son heure.</p>
+        
+            <p><strong>Les Héritiers du Pouvoir</strong></p>
+        
+            <p><strong>La Brigade de la Création</strong></p>
+            <p>Guidée par les principes de l'Ordre et de la Perfection, cette brigade poursuit un idéal : bâtir un empire inébranlable, où tout serait sous contrôle, immuable et parfait. Chaque structure, chaque loi, chaque alliance est pensée pour renforcer la grandeur de Zarrim.</p>
+            <p>Mais tous ne sont pas vertueux. Certains bâtissent <strong>non pas pour protéger, mais pour dominer</strong>. Ils utilisent le pouvoir de Création pour asseoir leur autorité, dissimulant leur ambition derrière des idéaux de stabilité.</p>
+            <p>Leur Artefact sacré : Le Cœur d’Æther – Un cristal d’une pureté absolue, capable de modeler la matière elle-même, de bâtir des cités en un instant ou de restaurer ce qui a été détruit.</p>
+        
+            <p><strong>La Brigade de la Destruction</strong></p>
+            <p>Porteuse du flambeau du Renouveau et du Chaos, cette brigade ne croit pas en la stabilité, mais en l’évolution perpétuelle. Pour renaître plus fort, il faut d’abord tout détruire. Ils ne voient pas la ruine comme une fin, mais comme un moyen d’atteindre un but plus grand.</p>
+            <p>Mais la Destruction a toujours attiré les âmes sombres. Certains <strong>n’œuvrent pas pour l’évolution, mais pour le plaisir de tout réduire à néant</strong>. Ils embrassent le chaos pour masquer leur soif de pouvoir.</p>
+            <p>Leur Artefact sacré : La Lame du Néant – Une arme légendaire capable de réduire toute chose en poussière, d’effacer jusqu’à l’essence même de l’existence.</p>
+        
+            <p>Pendant des siècles, ces deux forces s’opposèrent, convaincues que l’une devait triompher de l’autre.</p>
+        
+            <p><strong>Elles avaient tort.</strong></p>
+        
+            <p><strong>Un Soupçon d’Ombre</strong></p>
+            <p>Au fil des âges, des anomalies commencèrent à apparaître. Des lieux où le temps semblait figé. Des disparitions inexplicables. Des batailles dont aucun camp ne revendiquait la victoire.</p>
+            <p>Les érudits <strong>fouillèrent les archives</strong> de Zarrim, et tous découvrirent la même chose :</p>
+            <p>Un fragment manquant dans l’histoire.</p>
+            <p>Les légendes parlaient de <strong>deux guerriers fondateurs</strong>… mais certains textes, aussi rares que troublants, mentionnaient un *"troisième".</p>
+            <p>Un être que même les deux Titans d’origine redoutaient.</p>
+            <p>Un nom, murmuré dans l’ombre.</p>
+            <p><strong>L’Innommé.</strong></p>
+            <p>Mais ces recherches ne menèrent à rien. Ceux qui s’en approchèrent <strong>trop… disparurent</strong>.</p>
+        
+            <p><strong>L’Ordre du Néant : L’Ennemi Invisible</strong></p>
+            <p>L’Ordre du Néant n’existe pas officiellement. Il est une rumeur, un murmure que les Brigades préfèrent ignorer.</p>
+            <p>Pourtant, ils sont là.</p>
+            <p>Ils ne se battent pas sur le champ de bataille. Ils infiltrent. Ils manipulent.</p>
+            <p><strong>Ils sont parmi les Soldats.<br>
+            Parmi les Caporaux.<br>
+            Parmi les Sergents.</strong></p>
+            <p>Peut-être même parmi les <strong>Maréchaux</strong>.</p>
+            <p>Leur but ? Attendre que Création et Destruction s’épuisent. Attendre que les deux Brigades soient au bord de l’effondrement…</p>
+            <p><strong>Et frapper.</strong></p>
+            <p>Mais la guerre entre Création et Destruction continue, et personne ne prête attention à cette menace invisible. Après tout, chaque camp est convaincu que l’ennemi, c’est l’autre.</p>
+        
+            <p><strong>Un Destin Qui Se Joue</strong></p>
+            <p>Les Maréchaux des deux Brigades refusent d’y prêter attention. Après tout, la guerre entre Création et Destruction est la seule qui compte.</p>
+            <p>Mais certains pensent autrement.</p>
+            <p>Certains croient que le véritable ennemi n’est pas celui qu’ils affrontent aujourd’hui, mais une force qui attend son heure.</p>
+            <p>Une brigade qui n’a jamais été révélée.<br>
+            Une brigade qui ne devrait même pas exister.</p>
+            <p>Ils l’appellent l’Ordre du Néant.</p>
+        
+            <p><strong>Son but ? Effacer tout ce qui est.</strong></p>
+        
+            <p>Personne ne sait s’il s’agit d’un mythe ou d’une menace réelle… mais une chose est certaine :</p>
+        
+            <p><strong>Si un jour, le Cœur d’Æther et la Lame du Néant sont réunis…</strong></p>
+            <p><strong>Alors, et seulement alors, la véritable guerre commencera.</strong></p>
+        </div>             
+        <div id="brigades" class="content">
+            <h2>Les rôle dans la Brigade de Création / Destruction</h2>
+            <p><strong>Maréchal :</strong> Il est le chef en tant de guerre avec l'autre brigade</p>
+            <p><i>Rank : Par les Resp RP, puis le colonel, les sergents (et les lieutenant si il y a une égalité)</i></p>
+            <p> </p>
+            <p> </p>
+            <p><strong>Colonel :</strong> C'est le chef de la brigade</p>
+            <p><i>Rank : Par les Resp RP, puis les sergents</i></p>
+            <p> </p>
+            <p> </p>
+            <p><strong>Sergent :</strong> Ils s'occupent du bon fonctionnement de la brigade, il peut donner des pouvoirs et en retirer à certain membres, ils s'occupent d'élire le Maréchal et le Colonel, c'est forcément un des leurs</p>
+            <p><i>Rank : Par les Resp RP, puis le colonel ou Maréchal en fonction</i></p>
+            <p> </p>
+            <p> </p>
+            <p><strong>Lieutenant :</strong> Ils s'occupent de suivre les ordres des sergents, ils n'ont aucun pouvoir spécifique autre que pouvoir élire le Colonel</p>
+            <p><i>Rank : Par les Resp RP</i></p>
+            <p> </p>
+            <p> </p>
+            <p><strong>Caporal :</strong> Ils s'occupe des soldats pour apprendre les bases et ils sont désigné par les Sergents</p>
+            <p><i>Rank : Par les Sergents puis par les Resp RP</i></p>
+            <p> </p>
+            <p> </p>
+            <p><strong>Soldats :</strong> Ils sont nouveaux, ils n'ont aucun pouvoir</p>
+            <p><i>Rank : Par les Sergents et les Lieutenant puis par les Resp RP si et seulement si il à une mauvaise réputation</i></p>
+        </div>
+        <div id="mythril" class="content">
+            <h2>Mythril</h2>
+            <img src="icon/mythril.png" alt="Mythril" style="width:100px; height:auto;">
+            <p>Le Mythril est le minerais le plus puissant du serveur, il vous permet de faire les Lucky Block</p>
+            <p>On peut l'obtenir de 3 manière différente,
+                <ul>• Avec son minerais, il vous donnera 2 pépite de mythril</ul>
+                <ul>• Avec sa plantation, vous aurez 1 chance sur 85 d'obtenir une pépite</ul>
+                <ul>• Acheter au /ah</ul>
+            </p>
+            <p>Pour obtenir un lingot il vous faudra utilisez la Forge en titane, l'explication détailler de
+                la Forge se retrouve dans le menu Block
+            </p>
+        </div>
+        <div id="titane" class="content">
+            <h2>Titane</h2>
+            <p>Description du Titane...</p>
+        </div>
+        <div id="diamantgold" class="content">
+            <h2>DiamantGold</h2>
+            <p>Description du DiamantGold...</p>
+        </div>
+        <div id="factions" class="content">
+            <h2>Commandes de Factions</h2>
+            <p>/f info : Vous donne les information de votre faction</p>
+            <p>...</p>
+        </div>
+        <div id="utilitaire" class="content">
+            <h2>Commandes Utilitaires</h2>
+            <p>/spawn : Se téléporter au spawn</p>
+            <p>...</p>
+        </div>
+        <div id="autre" class="content">
+            <h2>Autres Commandes</h2>
+            <p>/luckyblock : Vous permet de voir tout les effets de LuckyBlock que vous avez eu</p>
+            <p>...</p>
+        </div>
+        <div id="luckyblock" class="content">
+            <h2>Lucky Block</h2>
+            <p>Les effets du Lucky Block</p>
+            <table border="1" cellspacing="0" cellpadding="10" style="width: 100%; border-collapse: collapse; text-align: left; background-color: #f4f4f4; color: black;">
+                <thead>
+                    <tr style="background-color: #00c3ff; color: black;">
+                        <th>Positivité</th>
+                        <th>Effet</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>X</td>
+                        <td>Nuclear</td>
+                        <td>Le LuckyBlock fait un explosion de la taille 75 ! Faite attention à vous !</td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>Vitesse grand V</td>
+                        <td>Le joueur à débloquer un effet de speed !</td>
+                    </tr>
+                    <tr>
+                        <td>X</td>
+                        <td>Boom</td>
+                        <td>Vous savez une mini-explosion ! Trop choupi</td>
+                    </tr>
+                    <tr>
+                        <td>X</td>
+                        <td>TP Loin</td>
+                        <td>Vous Téléporte dans un rayon de 500 par 500 block, ah et aussi à la couche 1000</td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>Whoua ! La moulaaa</td>
+                        <td>Vous allez gagner 1.000$ ! Un bon commencement</td>
+                    </tr>
+                    <tr>
+                        <td>X</td>
+                        <td>La-Haut</td>
+                        <td>Vous vous souvenez du film La-Haut ? Et bien nous y sommes !</td>
+                    </tr>
+                    <tr>
+                        <td>X</td>
+                        <td>Allumeeeer le feu !</td>
+                        <td>Donne des bottes au joueurs, elle mette du feu partout ou il marche</td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>La lune !</td>
+                        <td>Vous venez d'être téléporter sur la lune ! Le chunk ici contient 2x plus de minerais (Et contient des minerais de mythril, c'est le seul moyen d'en avoir avec un minerais !)</td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>Nature</td>
+                        <td>Bon bah vous êtes mère nature, ne marcher pas sur l'herbe sinon vous allez mourir</td>
+                    </tr>
+                    <tr>
+                        <td>X</td>
+                        <td>Blood Moon</td>
+                        <td>Vous êtes dans la Blood Moon ! Tout le monde veut votre peau pour gagner 10.000$ !</td>
+                    </tr>
+                    <tr>
+                        <td>...</td>
+                        <td>Autre</td>
+                        <td>De nouveaux effets vont être ajouter au fur et à mesure</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
+        <div id="caveblock" class="content">
+            <h2>Cave Block</h2>
+            <p>Tout sur le Cave Block...</p>
+        </div>
+        <div id="titaneforge" class="content">
+            <h2>Forge en Titane</h2>
+            <p>Tout sur la Forge en titane...</p>
+        </div>
+        <div id="rdz" class="content">
+            <h2>Règlement de Zarrim</h2>
+            <p>Les règles essentielles du serveur.</p>
+            <h3>Règlement de Zarrim (RDZ)</h3>
+            
+            <h4>1.0 - Les Comptes et Contestations</h4>
+            
+            <h5>1.1 - Compte Minecraft</h5>
+            <ul>
+                <li>Votre compte est strictement personnel. Si vous le partagez avec un ami, vous serez banni définitivement.</li>
+                <li>Les doubles comptes sont AUTORISÉS, cependant, vous ne pouvez pas avoir plus de 4 doubles comptes (en comptant votre compte principal).</li>
+                <li>Si vous êtes plusieurs dans le même foyer, merci de nous prévenir afin que nous puissions vérifier les comptes. Ainsi, en cas de bannissement IP, les autres joueurs du foyer pourront contester la sanction.</li>
+            </ul>
+            
+            <h5>1.2 - Contestation des sanctions</h5>
+            <ul>
+                <li>Toute sanction prise par le staff doit être respectée.</li>
+                <li>En cas de contestation, merci de passer par le support Discord avec des preuves.</li>
+                <li>Les OP se réservent le droit d’augmenter votre sanction en cas d’infractions répétées.</li>
+                <li>Une demande de déban peut être faite tous les 6 mois.</li>
+            </ul>
+            
+            <h4>2.0 - Règles de Comportement et Sanctions</h4>
+            
+            <h5>2.1 - Le comportement en jeu</h5>
+            <ul>
+                <li>Le respect est primordial. Toute insulte, provocation ou menace sera sanctionnée.</li>
+                <li>Flood : Mute 10 min (Récidive : 30 min, Aggravé : 1h + kick).</li>
+                <li>Insulte Légère : Mute 1h (Récidive : 2h, Aggravé : x3).</li>
+                <li>Insulte Grave : Mute 2h (Récidive : x2, Aggravé : x3).</li>
+                <li>Propos Haineux : Mute 4h (Récidive : x2, Aggravé : x3).</li>
+                <li>Menace IRL : Mute 7h (Aggravé : TempBan 1j).</li>
+                <li>Harcèlement : TempBan 1j (Récidive : x2).</li>
+            </ul>
+            
+            <h5>2.2 - Publicité et Triche</h5>
+            <ul>
+                <li>Pub pour un autre serveur : Jail 1h (Récidive : 3h, Aggravé : x2).</li>
+                <li>Cheat : TempBan 30j (Récidive : BAN DEF).</li>
+                <li>Duplication : BAN DEF.</li>
+                <li>Exploit de bug : Ban 7j (Récidive : 30j, Aggravé : BAN DEF).</li>
+            </ul>
+            
+            <h5>2.3 - Fairplay et Respect du Staff</h5>
+            <ul>
+                <li>Non-fairplay : Jail 1h (Récidive : 2h, Aggravé : 4h).</li>
+                <li>Manque de respect au staff : Jail 2h (Récidive : 4h, Aggravé : TempBan 1j).</li>
+                <li>Contournement de sanction : Ban IP 7j (Récidive : Ban IP Définitif).</li>
+            </ul>
+            
+            <h4>3.0 - Le gameplay</h4>
+            
+            <h5>3.1 - Règles de base</h5>
+            <ul>
+                <li>Le pillage et le grief sont autorisés sauf dans les zones protégées.</li>
+                <li>L'utilisation abusive des claims pour bloquer ou piéger un joueur est interdite.</li>
+                <li>Une Faction doit avoir au moins 4 chunks pour s'étendre ou agrandir sa Base Claim.</li>
+                <li>Les trahisons sont autorisées mais restent sous la responsabilité des joueurs.</li>
+                <li>Le spawnkill est interdit.</li>
+            </ul>
+            
+            <h4>4.0 - Les échanges et le commerce</h4>
+            
+            <h5>4.1 - Commerce entre joueurs</h5>
+            <ul>
+                <li>Les arnaques IG sont tolérées, cependant n'en abusez pas trop.</li>
+                <li>L'achat/vente de ressources, grade ou spawner contre de l'argent réel est strictement interdit et vous expose à un banissement IP sans demande de Déban.</li>
+            </ul>
+            
+            <h4>5.0 - L'utilisation du chat</h4>
+            
+            <h5>5.1 - Respect et usage du chat</h5>
+            <ul>
+                <li>Le respect des autres joueurs est obligatoire.</li>
+                <li>L'abus de majuscules, le spam et le flood sont interdits.</li>
+                <li>Toute incitation à la haine, propos discriminatoires ou illégaux mènera à un bannissement immédiat.</li>
+                <li>La publicité pour un autre serveur est interdite.</li>
+            </ul>
+            
+            <h4>6.0 - Les règles spécifiques</h4>
+            
+            <h5>6.1 - Triche et Exploits</h5>
+            <ul>
+                <li>L'utilisation de bugs ou d'exploits pour obtenir un avantage est interdite.</li>
+                <li>Toute atteinte à l'intégrité du serveur (tentative de DDoS, hacking, etc.) entraînera des poursuites.</li>
+            </ul>
+            
+            <h5>6.2 - Règles de Staff</h5>
+            <ul>
+                <li>La Haute Administration a le dernier mot en cas de litige.</li>
+                <li>En jouant sur Zarrim, vous acceptez l'intégralité du règlement et ses mises à jour.</li>
+            </ul>
+            
+            <p>Merci de respecter ces règles pour garantir une bonne expérience de jeu à tous !</p>
+        </div>        
+        <div id="events" class="content">
+            <h2>Événements communautaires</h2>
+            <p>Les prochains événements organisés par la communauté.</p>
+        </div>
+    </div>
+</body>
+</html>
